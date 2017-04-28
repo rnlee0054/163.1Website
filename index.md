@@ -39,7 +39,11 @@ Saturation is controlled using the greyscale version of the original image. Each
 
 _.exe -gamma gamma_
 
-Performs gamma correction on the image. Each pixel's color is changed using the formula C_{new} = C_{old}^(1/gamma), where C_{old} is a value [0,1] and gamma is (0,infinity).
+Performs gamma correction on the image. Each pixel's color is changed using the formula C_new = C_old^(1/gamma), where C_old is a value [0,1] and gamma is (0,infinity). gamma of 1 yields the original image. Values lower than 1 darken the image. Values greater than 1 brighten it.
+
+0.5 | 0.8 | 1.0 (original) | 1.5 | 2.0
+--- | --- | --- | --- | ---
+[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma0.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma0.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma0.8.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma0.8.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma1.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma1.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma2.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/gamma2.0.bmp)
 
 ## Crop
 
@@ -51,5 +55,5 @@ Our program is able to take w and h values that are greater than the original im
 
 values | original | crop
 --- | --- | ---
-x=50, y=20, w=80, h=80 | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) Dimensions: 160x120| [![What a pretty flower](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop50,20,80,80.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop50,20,80,80.bmp)
-x=0, y=35, w=999, h=60 | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/mandrill.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/mandrill.bmp) Dimensions: 512x512 | [![I C U](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop0,35,999,60.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop0,35,999,60.bmp)
+x=50, y=20, w=80, h=80; Original dimensions: 160x120 | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | [![What a pretty flower](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop50,20,80,80.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop50,20,80,80.bmp)
+x=0, y=35, w=999, h=60; Original dimensions: 512x512 | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/mandrill.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/mandrill.bmp) | [![I C U](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop0,35,999,60.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop0,35,999,60.bmp)

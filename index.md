@@ -7,7 +7,9 @@ P.S. The GitHub repo is purely website assets. No source code here!
 # Basic Operations
 ## Brighten
 
-Brightness is controlled using a black image. Interpolation darkens it. Extrapolation brightens it.
+_.exe -brightness factor_
+
+Brightness is controlled using a constant black image. Interpolation darkens it. Extrapolation brightens it. Only non-negative numbers are allowed.
 
 0.0 | 0.5 | 1.0 (original) | 1.5 | 2.0
 --- | --- | --- | --- | ---
@@ -15,7 +17,9 @@ Brightness is controlled using a black image. Interpolation darkens it. Extrapol
 
 ## ChangeContrast
 
-Contrast is controlled using a grey image; the value of grey is the averaged luminance of the original image. Interpolation decreases contrast. Extrapolation increases it. Negative alpha factor inverts the hue.
+_.exe -contrast factor_
+
+Contrast is controlled using a constant grey image; the value of grey is the mean luminance of the original image. Interpolation decreases contrast. Extrapolation increases it. Negative factor inverts the hue.
 
 -0.5 | 0.0 | 0.5 | 1.0 (original) | 2.0
 --- | --- | --- | --- | ---
@@ -23,11 +27,22 @@ Contrast is controlled using a grey image; the value of grey is the averaged lum
 
 ## ChangeSaturation
 
-Saturation is controlled using the greyscale version of the original image. Each pixel is the luminance of the original image. Interpolation decreases saturation. Extrapolation increases it. Negative factor inverts the hue.
+_.exe -saturation factor_
+
+Saturation is controlled using the greyscale version of the original image. Each pixel is the luminance of the original image's respective pixel. Interpolation decreases saturation. Extrapolation increases it. Negative factor inverts the hue.
 
 -1.0 | 0.0 | 0.5 | 1.0 (original) | 2.0
 --- | --- | --- | --- | ---
 [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation-1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation-1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation2.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation2.0.bmp)
 
 ## ChangeGamma
+
+_.exe -gamma gamma_
+
+Performs gamma correction on the image. Each pixel's color is changed using the formula C_{new} = C_{old}^(1/gamma), where C_{old} is a value [0,1] and gamma is (0,infinity).
+
 ## Crop
+
+_.exe -crop x y width height _
+
+Crops the image, starting the new top-left corner at coordinate (x,y) of the original image. width and height are the size dimensions of the new image. x is [0,width-1] and y is [0,height-1]. width and height must be positive.

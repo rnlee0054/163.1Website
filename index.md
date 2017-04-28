@@ -39,7 +39,7 @@ Saturation is controlled using the greyscale version of the original image. Each
 
 _.exe -gamma gamma_
 
-Performs gamma correction on the image. Each pixel's color is changed using the formula C_new = C_old^(1/gamma), where C_old is a value [0,1] and gamma is (0,infinity). gamma of 1 yields the original image. Values lower than 1 darken the image. Values greater than 1 brighten it.
+Performs gamma correction on the image. Gamma correction is used to account for differences in device displays and human perception of brightness. Each pixel's color is changed using the formula C_new = C_old^(1/gamma), where C_old is a value [0,1] and gamma is (0,infinity). gamma of 1 yields the original image. Values lower than 1 darken the image. Values greater than 1 brighten it.
 
 0.5 | 0.8 | 1.0 (original) | 1.5 | 2.0
 --- | --- | --- | --- | ---
@@ -47,7 +47,7 @@ Performs gamma correction on the image. Each pixel's color is changed using the 
 
 ## Crop
 
-_.exe -crop x y w h _
+_.exe -crop x y w h_
 
 Crops the image, starting the new top-left corner at coordinate (x,y) of the original image. w and h are the width and height size dimensions of the new image. x is [0,width-1] and y is [0,height-1]. w and h must be positive. 
 

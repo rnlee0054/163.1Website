@@ -12,6 +12,11 @@ P.S. The GitHub repo is purely website assets. No source code here!
 [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness0.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness0.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness0.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness0.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness1.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness1.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness2.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness2.0.bmp)
 
 ### ChangeContrast
+
+-0.5 | 0.0 | 0.5 | 1.0 (original) | 2.0
+--- | --- | --- | --- | ---
+[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast-0.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast-0.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast0.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast0.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast0.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast0.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast2.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/contrast2.0.bmp)
+
 ### ChangeSaturation
 ### ChangeGamma
 ### Crop

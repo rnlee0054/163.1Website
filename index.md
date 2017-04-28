@@ -43,10 +43,13 @@ Performs gamma correction on the image. Each pixel's color is changed using the 
 
 ## Crop
 
-_.exe -crop x y width height _
+_.exe -crop x y w h _
 
-Crops the image, starting the new top-left corner at coordinate (x,y) of the original image. width and height are the size dimensions of the new image. x is [0,width-1] and y is [0,height-1]. width and height must be positive.
+Crops the image, starting the new top-left corner at coordinate (x,y) of the original image. w and h are the width and height size dimensions of the new image. x is [0,width-1] and y is [0,height-1]. w and h must be positive. 
 
-original | crop | crop 2
---- | --- | --- | --- | ---
-[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation-1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation-1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation2.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation2.0.bmp)
+Our program is able to take w and h values that are greater than the original image's width-x-1 and height-y-1; values greater than these will result in keeping as many pixels as there are remaining on the respective dimension. A demonstration can be seen in the second example with the mandrill image, where the specified w=999 when the mandrill image is only 512 pixels wide. Because x=0 and w=999, the whole width of the image is preserved.
+
+values | original | crop
+--- | --- | ---
+x=50, y=20, w=80, h=80 | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) Dimensions: 160x120| [![What a pretty flower](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop50,20,80,80.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop50,20,80,80.bmp)
+x=0, y=35, w=999, h=60 | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/mandrill.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/mandrill.bmp) Dimensions: 512x512 | [![I C U](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop0,35,999,60.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop0,35,999,60.bmp)

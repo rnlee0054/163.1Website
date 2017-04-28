@@ -46,3 +46,7 @@ Performs gamma correction on the image. Each pixel's color is changed using the 
 _.exe -crop x y width height _
 
 Crops the image, starting the new top-left corner at coordinate (x,y) of the original image. width and height are the size dimensions of the new image. x is [0,width-1] and y is [0,height-1]. width and height must be positive.
+
+original | crop | crop 2
+--- | --- | --- | --- | ---
+[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation-1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation-1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation0.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation2.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/saturation2.0.bmp)

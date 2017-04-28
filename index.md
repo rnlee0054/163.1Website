@@ -1,17 +1,17 @@
-Rachel Lee (@rnlee0054) & Brady Shi (@shibrady)
+This program performs basic image processing operations and is run using the command line, not unlike ImageMagick. Simple operations include brightness, gamma, and saturation, while more complex operations range from blur to anti-aliased image resizing.
 
-April 2017
+[You can download the command line executable here!]()
 
 P.S. The GitHub repo is purely website assets. No source code here!
 
-## 3.2 Basic Operations
-### 3.2.1 Image::Brighten
+## Basic Operations
+### Brighten
 
-factor | 0.0 | 0.5 | 1.0 | 1.5 | 2.0
---- | --- | --- | --- | --- | ---
-Image | a | b | c | d | e
+0.0 | 0.5 | 1.0 (original) | 1.5 | 2.0
+--- | --- | --- | --- | ---
+[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness0.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness0.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness0.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness0.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness1.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness1.0.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness1.5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness1.5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness2.0.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/brightness2.0.bmp)
 
-### 3.2.2 Image::ChangeContrast
-### 3.2.3 Image::ChangeSaturation
-### 3.2.4 Image::ChangeGamma
-### 3.2.5 Image::Crop
+### ChangeContrast
+### ChangeSaturation
+### ChangeGamma
+### Crop

@@ -125,3 +125,21 @@ original | 50 | 100 | 150 | 250
 --- | --- | --- | --- | ---
 [[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/wave.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/wave.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave50.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave50.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave100.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave100.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave150.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave150.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave250.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave250.bmp)
 [[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard50.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard50.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard100.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard100.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard150.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard150.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard250.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard250.bmp)
+
+
+# Anti-aliased Scale and Shift
+## Scale
+
+_.exe -scale sizex sizey_
+
+Draw the edges of the image's pixels, making the edges white and the rest black.
+
+Original image:
+[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)
+
+resolution | 300x512 | 512x300 | 300x300 | 800x800
+--- | --- | --- | --- | ---
+Nearest neighbor | [[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn300x512.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn300x512.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn512x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn512x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn300x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn300x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn800x800.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn800x800.bmp)
+Hat filter | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat300x512.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat300x512.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat512x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat512x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat300x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat300x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat800x800.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat800x800.bmp)
+
+## Shift

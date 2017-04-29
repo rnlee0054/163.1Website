@@ -156,7 +156,7 @@ Original image:
 
 [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)
 
-Examples | ~ | ~ | ~
+sx, sy | -10.5, -20.5 | 10.5, 20.5 | 10, 20
 --- | --- | --- | ---
 Nearest neighbor | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0negdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0negdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0posdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0posdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0posint.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0posint.bmp)
 Hat filter | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1negdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1negdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1posdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1posdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1posint.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1posint.bmp)

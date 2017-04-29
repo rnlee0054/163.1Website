@@ -135,7 +135,7 @@ original | 50 | 100 | 150 | 250
 
 _.exe -scale sizex sizey_
 
-Draw the edges of the image's pixels, making the edges white and the rest black.
+Scale the image to the new resolution _sizex, sizey_.
 
 Original image:
 
@@ -148,3 +148,16 @@ Hat filter | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/maste
 Mitchell filter | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit300x512.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit300x512.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit512x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit512x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit300x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit300x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit800x800.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit800x800.bmp)
 
 ## Shift
+_.exe -shift sx sy_
+
+Shift the image by _sx, sy_, and leave black pixels in the gaps created by shifting the image.
+
+Original image:
+
+[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)
+
+Examples | ~ | ~ | ~
+--- | --- | --- | ---
+Nearest neighbor | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0negdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0negdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0posdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0posdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0posint.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift0posint.bmp)
+Hat filter | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1negint.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1negint.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1posdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1posdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1posint.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift1posint.bmp)
+Mitchell filter | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2negdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2negdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2posdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2posdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2posint.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2posint.bmp)

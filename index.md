@@ -2,6 +2,7 @@ This program performs basic image processing operations and is run using the com
 
 [You can download the command line executable here!]()
 
+For any images below, you can press them to view its full resolution.
 P.S. The GitHub repo is purely website assets. No source code here!
 
 # Basic Operations
@@ -9,7 +10,7 @@ P.S. The GitHub repo is purely website assets. No source code here!
 
 _.exe -brightness factor_
 
-Brightness is controlled using a constant black image. Interpolation darkens it. Extrapolation brightens it. Only non-negative numbers are allowed.
+Brightness is controlled using a constant black image and performing linear interpolation between it and the original image. Interpolation darkens it. Extrapolation brightens it. Only non-negative numbers are allowed.
 
 0.0 | 0.5 | 1.0 (original) | 1.5 | 2.0
 --- | --- | --- | --- | ---
@@ -19,7 +20,7 @@ Brightness is controlled using a constant black image. Interpolation darkens it.
 
 _.exe -contrast factor_
 
-Contrast is controlled using a constant grey image; the value of grey is the mean luminance of the original image. Interpolation decreases contrast. Extrapolation increases it. Negative factor inverts the hue.
+Contrast is controlled using a constant grey image and performing linear interpolation between it and the original image. The value of grey is the mean luminance of the original image. Interpolation decreases contrast. Extrapolation increases it. Negative factor inverts the hue.
 
 -0.5 | 0.0 | 0.5 | 1.0 (original) | 2.0
 --- | --- | --- | --- | ---
@@ -29,7 +30,7 @@ Contrast is controlled using a constant grey image; the value of grey is the mea
 
 _.exe -saturation factor_
 
-Saturation is controlled using the greyscale version of the original image. Each pixel is the luminance of the original image's respective pixel. Interpolation decreases saturation. Extrapolation increases it. Negative factor inverts the hue.
+Saturation is controlled using the greyscale version of the original image and performing linear interpolation between the greyscale image and the original image. Each pixel is the luminance of the original image's respective pixel. Interpolation decreases saturation. Extrapolation increases it. Negative factor inverts the hue.
 
 -1.0 | 0.0 | 0.5 | 1.0 (original) | 2.0
 --- | --- | --- | --- | ---
@@ -39,7 +40,7 @@ Saturation is controlled using the greyscale version of the original image. Each
 
 _.exe -gamma gamma_
 
-Performs gamma correction on the image. Gamma correction is used to account for differences in device displays and human perception of brightness. Each pixel's color is changed using the formula C_new = C_old^(1/gamma), where C_old is a value [0,1] and gamma is (0,infinity). gamma of 1 yields the original image. Values lower than 1 darken the image. Values greater than 1 brighten it.
+Performs gamma correction on the image. Gamma correction is used to account for differences in device displays and human perception of brightness, which are both non-linear. Each pixel's color is changed using the formula C_new = C_old^(1/gamma), where C_old is a value [0,1] and gamma is (0,infinity). gamma of 1 yields the original image. Values lower than 1 darken the image. Values greater than 1 brighten it.
 
 0.5 | 0.8 | 1.0 (original) | 1.5 | 2.0
 --- | --- | --- | --- | ---
@@ -49,9 +50,9 @@ Performs gamma correction on the image. Gamma correction is used to account for 
 
 _.exe -crop x y w h_
 
-Crops the image, starting the new top-left corner at coordinate (x,y) of the original image. w and h are the width and height size dimensions of the new image. x is [0,width-1] and y is [0,height-1]. w and h must be positive. 
+Crops the image, starting the new top-left corner at coordinate (x,y) of the original image. _w_ and _h_ are the width and height size dimensions of the new image. _x_ is [0,width-1] and _y_ is [0,height-1]. _w_ and _h_ must be positive. 
 
-Our program is able to take w and h values that are greater than the original image's width-x-1 and height-y-1; values greater than these will result in keeping as many pixels as there are remaining on the respective dimension. A demonstration can be seen in the second example with the mandrill image, where the specified w=999 when the mandrill image is only 512 pixels wide. Because x=0 and w=999, the whole width of the image is preserved.
+Our program is able to take _w_ and _h_ values that are greater than the original image's _width-x-1_ and _height-y-1_; values greater than these will result in keeping as many pixels as there are remaining on the respective dimension. A demonstration can be seen in the second example with the mandrill image, where the specified w=999 when the mandrill image is only 512 pixels wide. Because x=0 and w=999, the whole width of the image is preserved.
 
 values | original | crop
 --- | --- | ---
@@ -119,7 +120,9 @@ original | sharpen
 
 _.exe -edgeDetect threshold_
 
-Draw the edges of the image's pixels, making the edges white and the rest black.
+Draw the edges of the image's pixels, making the edges white and the rest black. This is done by convolving with a gradient (Soble) filter, normalizing the gradients, then thresholding with the _threshold_ value to detect edges. The pixel is set to white if its luminance is greater than the _threshold_, black if otherwise.
+
+_Remember: Click the images below to view full resolution._
 
 original | 50 | 100 | 150 | 250
 --- | --- | --- | --- | ---

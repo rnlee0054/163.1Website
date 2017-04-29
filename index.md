@@ -91,3 +91,37 @@ For example, if the current pixel should be 255 luminance but is put into a quan
 original (8 bits) | 1 | 2 | 3 | 4 | 5
 --- | --- | --- | --- | --- | ---
 [[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither1.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither1.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither2.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither2.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither4.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither4.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither5.bmp)
+
+# Convolution and Edge Detection
+
+## Blur
+
+_.exe -blur n_
+
+Blurs the image with a filter of width _n_. The width is the "diameter" of the kernel. The blur is done using convolution.
+
+original | 3 | 5 | 7 | 11 | 15 | 21
+--- | --- | --- | --- | --- | ---
+[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur7.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur7.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur11.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur11.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur15.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur15.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur21.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur21.bmp)
+
+## Sharpen
+
+_.exe -sharpen_
+
+Sharpens the image by increasing the high frequencies. The image is convolved using a sharpening filter.
+
+original | sharpen
+--- | ---
+[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/sharpen.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/sharpen.bmp)
+
+
+## Edge Detection
+
+_.exe -edgeDetect threshold_
+
+Draw the edges of the image's pixels, making the edges white and the rest black.
+
+original | 50 | 100 | 150 | 250
+--- | --- | --- | --- | ---
+[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/wave.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/wave.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave50.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave50.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave100.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave100.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave150.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave150.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave250.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_wave250.bmp)
+[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard50.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard50.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard100.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard100.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard150.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard150.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard250.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/edgedetect_checkerboard250.bmp)

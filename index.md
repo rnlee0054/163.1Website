@@ -2,6 +2,7 @@ This program performs basic image processing operations and is run using the com
 
 [You can download the command line executable here!]()
 
+For any images below, you can press them to view its full resolution.
 P.S. The GitHub repo is purely website assets. No source code here!
 
 # Basic Operations
@@ -9,7 +10,7 @@ P.S. The GitHub repo is purely website assets. No source code here!
 
 _.exe -brightness factor_
 
-Brightness is controlled using a constant black image. Interpolation darkens it. Extrapolation brightens it. Only non-negative numbers are allowed.
+Brightness is controlled using a constant black image and performing linear interpolation between it and the original image. Interpolation darkens it. Extrapolation brightens it. Only non-negative numbers are allowed.
 
 0.0 | 0.5 | 1.0 (original) | 1.5 | 2.0
 --- | --- | --- | --- | ---
@@ -19,7 +20,7 @@ Brightness is controlled using a constant black image. Interpolation darkens it.
 
 _.exe -contrast factor_
 
-Contrast is controlled using a constant grey image; the value of grey is the mean luminance of the original image. Interpolation decreases contrast. Extrapolation increases it. Negative factor inverts the hue.
+Contrast is controlled using a constant grey image and performing linear interpolation between it and the original image. The value of grey is the mean luminance of the original image. Interpolation decreases contrast. Extrapolation increases it. Negative factor inverts the hue.
 
 -0.5 | 0.0 | 0.5 | 1.0 (original) | 2.0
 --- | --- | --- | --- | ---
@@ -29,7 +30,7 @@ Contrast is controlled using a constant grey image; the value of grey is the mea
 
 _.exe -saturation factor_
 
-Saturation is controlled using the greyscale version of the original image. Each pixel is the luminance of the original image's respective pixel. Interpolation decreases saturation. Extrapolation increases it. Negative factor inverts the hue.
+Saturation is controlled using the greyscale version of the original image and performing linear interpolation between the greyscale image and the original image. Each pixel is the luminance of the original image's respective pixel. Interpolation decreases saturation. Extrapolation increases it. Negative factor inverts the hue.
 
 -1.0 | 0.0 | 0.5 | 1.0 (original) | 2.0
 --- | --- | --- | --- | ---
@@ -39,7 +40,7 @@ Saturation is controlled using the greyscale version of the original image. Each
 
 _.exe -gamma gamma_
 
-Performs gamma correction on the image. Gamma correction is used to account for differences in device displays and human perception of brightness. Each pixel's color is changed using the formula C_new = C_old^(1/gamma), where C_old is a value [0,1] and gamma is (0,infinity). gamma of 1 yields the original image. Values lower than 1 darken the image. Values greater than 1 brighten it.
+Performs gamma correction on the image. Gamma correction is used to account for differences in device displays and human perception of brightness, which are both non-linear. Each pixel's color is changed using the formula C_new = C_old^(1/gamma), where C_old is a value [0,1] and gamma is (0,infinity). gamma of 1 yields the original image. Values lower than 1 darken the image. Values greater than 1 brighten it.
 
 0.5 | 0.8 | 1.0 (original) | 1.5 | 2.0
 --- | --- | --- | --- | ---
@@ -49,9 +50,9 @@ Performs gamma correction on the image. Gamma correction is used to account for 
 
 _.exe -crop x y w h_
 
-Crops the image, starting the new top-left corner at coordinate (x,y) of the original image. w and h are the width and height size dimensions of the new image. x is [0,width-1] and y is [0,height-1]. w and h must be positive. 
+Crops the image, starting the new top-left corner at coordinate (x,y) of the original image. _w_ and _h_ are the width and height size dimensions of the new image. _x_ is [0,width-1] and _y_ is [0,height-1]. _w_ and _h_ must be positive. 
 
-Our program is able to take w and h values that are greater than the original image's width-x-1 and height-y-1; values greater than these will result in keeping as many pixels as there are remaining on the respective dimension. A demonstration can be seen in the second example with the mandrill image, where the specified w=999 when the mandrill image is only 512 pixels wide. Because x=0 and w=999, the whole width of the image is preserved.
+Our program is able to take _w_ and _h_ values that are greater than the original image's _width-x-1_ and _height-y-1_; values greater than these will result in keeping as many pixels as there are remaining on the respective dimension. A demonstration can be seen in the second example with the mandrill image, where the specified w=999 when the mandrill image is only 512 pixels wide. Because x=0 and w=999, the whole width of the image is preserved.
 
 values | original | crop
 --- | --- | ---
@@ -74,7 +75,7 @@ original (8 bits) | 1 | 2 | 3 | 4 | 5
 
 _.exe -randomDither nbits_
 
-Add random noise to the image while quantizing its pixels. The human eye is more tolerant of high frequency noise than it is to hard (low frequency) distracting edges or patterns. Again, _nbits_ is [1,8], which determines how many bits there are per color channel.
+Add random noise to the image while quantizing its pixels. The human eye is more tolerant of high frequency noise than it is to hard (low frequency) distracting edges or patterns. Again, _nbits_ is [1,8], which determines how many bits there are per color channel. Higher _nbits_ allows more colors.
 
 original (8 bits) | 1 | 2 | 3 | 4 | 5
 --- | --- | --- | --- | --- | ---
@@ -84,13 +85,13 @@ original (8 bits) | 1 | 2 | 3 | 4 | 5
 
 _.exe -FloydSteinbergDither nbits_
 
-Diffuses the error of the original color versus the quantized color to pixels later in the image. This means later pixels share the error of the current pixel being processed. The color is still quantized.
+Diffuses the error of the original color versus the quantized color to pixels later in the image. This means later pixels share the error of the current pixel being processed.  Again, _nbits_ is [1,8], which determines how many bits there are per color channel. Higher _nbits_ allows more colors.
 
 For example, if the current pixel should be 255 luminance but is put into a quantum which is 200 luminance, the error is 55 because it will be displayed darker than it is originally. This positive error is added to some later pixels, which will tend to be brighter than original to make up for the darkened pixel.
 
 original (8 bits) | 1 | 2 | 3 | 4 | 5
 --- | --- | --- | --- | --- | ---
-[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither1.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither1.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither2.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither2.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither4.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither4.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither5.bmp)
+[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither1.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither1.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither2.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither2.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither4.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither4.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither5.bmp)
 
 # Convolution and Edge Detection
 
@@ -98,28 +99,30 @@ original (8 bits) | 1 | 2 | 3 | 4 | 5
 
 _.exe -blur n_
 
-Blurs the image with a filter of width _n_. The width is the "diameter" of the kernel. The blur is done using convolution.
+Performs Gaussian blur on the image with a filter of width _n_. The width is the "diameter" of the kernel. The blur is done using convolution with the gaussian filter. _n_ must be an odd number greater than 1. The higher _n_ blurs more.
 
 original | 3 | 5 | 7 | 11 | 15 | 21
---- | --- | --- | --- | --- | ---
-[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur7.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur7.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur11.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur11.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur15.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur15.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur21.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur21.bmp)
+--- | --- | --- | --- | --- | --- | ---
+[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur7.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur7.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur11.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur11.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur15.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur15.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur21.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur21.bmp)
 
 ## Sharpen
 
 _.exe -sharpen_
 
-Sharpens the image by increasing the high frequencies. The image is convolved using a sharpening filter.
+Sharpens the image by increasing the high frequencies. The image is convolved using a sharpening filter with specific values, being careful not to make up new information.
 
 original | sharpen
 --- | ---
-[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/sharpen.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/sharpen.bmp)
+[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/sharpen.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/sharpen.bmp)
 
 
 ## Edge Detection
 
 _.exe -edgeDetect threshold_
 
-Draw the edges of the image's pixels, making the edges white and the rest black.
+Draw the edges of the image's pixels, making the edges white and the rest black. This is done by convolving with a gradient (Soble) filter, normalizing the gradients, then thresholding with the _threshold_ value to detect edges. The pixel is set to white if its luminance is greater than the _threshold_, black if otherwise. The higher _threshold_ makes the edge detection more strict, so only more obvious or hard edges are detected.
+
+_Remember: Click the images below to view full resolution._
 
 original | 50 | 100 | 150 | 250
 --- | --- | --- | --- | ---
@@ -141,5 +144,6 @@ resolution | 300x512 | 512x300 | 300x300 | 800x800
 --- | --- | --- | --- | ---
 Nearest neighbor | [[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn300x512.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn300x512.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn512x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn512x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn300x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn300x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn800x800.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_nn800x800.bmp)
 Hat filter | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat300x512.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat300x512.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat512x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat512x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat300x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat300x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat800x800.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_hat800x800.bmp)
+Mitchell filter | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit300x512.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit300x512.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit512x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit512x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit300x300.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit300x300.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit800x800.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/scale_mit800x800.bmp)
 
 ## Shift

@@ -57,3 +57,37 @@ values | original | crop
 --- | --- | ---
 x=50, y=20, w=80, h=80; Original dimensions: 160x120 | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | [![What a pretty flower](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop50,20,80,80.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop50,20,80,80.bmp)
 x=0, y=35, w=999, h=60; Original dimensions: 512x512 | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/mandrill.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/mandrill.bmp) | [![I C U](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop0,35,999,60.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/crop0,35,999,60.bmp)
+
+# Quantization and Dithering
+
+## Quantize
+
+_.exe -quantize nbits_
+
+Quantizes the image, using _nbits_ per channel. _nbits_ is [1,8]. With more bits, the image can represent more colors. With fewer bits, the images have fewer colors and it is easy to see the edges of when the colors change.
+
+original (8 bits) | 1 | 2 | 3 | 4 | 5
+--- | --- | --- | --- | --- | ---
+[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize1.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize1.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize2.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize2.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize4.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize4.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/quantize5.bmp)
+
+## Random Dither
+
+_.exe -randomDither nbits_
+
+Add random noise to the image while quantizing its pixels. The human eye is more tolerant of high frequency noise than it is to hard (low frequency) distracting edges or patterns. Again, _nbits_ is [1,8], which determines how many bits there are per color channel.
+
+original (8 bits) | 1 | 2 | 3 | 4 | 5
+--- | --- | --- | --- | --- | ---
+[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither1.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither1.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither2.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither2.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither4.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither4.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/randomdither5.bmp)
+
+## Floyd-Steinberg Dither
+
+_.exe -FloydSteinbergDither nbits_
+
+Diffuses the error of the original color versus the quantized color to pixels later in the image. This means later pixels share the error of the current pixel being processed. The color is still quantized.
+
+For example, if the current pixel should be 255 luminance but is put into a quantum which is 200 luminance, the error is 55 because it will be displayed darker than it is originally. This positive error is added to some later pixels, which will tend to be brighter than original to make up for the darkened pixel.
+
+original (8 bits) | 1 | 2 | 3 | 4 | 5
+--- | --- | --- | --- | --- | ---
+[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | ![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither1.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither1.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither2.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither2.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither4.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither4.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fsdither5.bmp)

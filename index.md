@@ -135,7 +135,7 @@ original | 50 | 100 | 150 | 250
 
 _.exe -scale sizex sizey_
 
-Scale the image to the new resolution _sizex, sizey_.
+Scale the image to the new resolution _sizex, sizey_.  It can be sampled using 3 different filters: naive nearest neighbor, hat filter, and mitchell filter. The hat filter and mitchell filter will be antialiased while the nearest neighbor may display jaggies. _sizex, sizey_ must be 1 or greater.
 
 Original image:
 
@@ -150,7 +150,7 @@ Mitchell filter | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/
 ## Shift
 _.exe -shift sx sy_
 
-Shift the image by _sx, sy_, and leave black pixels in the gaps created by shifting the image.
+Shift the image by _sx, sy_, and leave black pixels in the gaps created by shifting the image. It can be sampled using 3 different filters: naive nearest neighbor, hat filter, and mitchell filter.  The hat filter and mitchell filter will be antialiased while the nearest neighbor may display jaggies. _sx and sy_ are doubles and can be positive or negative, but passing in integer values will also work.
 
 Original image:
 
@@ -163,6 +163,10 @@ Hat filter | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/maste
 Mitchell filter | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2negdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2negdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2posdoub.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2posdoub.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2posint.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/shift2posint.bmp)
 
 # FUN
-Rotate the image by 0.524 radians.
+Rotate the image by 0.524 radians. The reason why there are some black missing circles is because we rotate the image using the original image, mapped into the output image. Thus not all pixels are filled.
+
+Typically it would be a better idea to loop through the output image's pixels and inverse rotate to find the input pixel to sample from. This way, all pixels will receive a sample.
+
+However, we end up with a pretty cool pattern.
 
 [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fun0.524.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/fun0.524.bmp)

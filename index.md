@@ -138,7 +138,8 @@ _.exe -scale sizex sizey_
 Draw the edges of the image's pixels, making the edges white and the rest black.
 
 Original image:
-[[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)
+
+[![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/checkerboard.bmp)
 
 resolution | 300x512 | 512x300 | 300x300 | 800x800
 --- | --- | --- | --- | ---

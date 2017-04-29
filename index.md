@@ -75,7 +75,7 @@ original (8 bits) | 1 | 2 | 3 | 4 | 5
 
 _.exe -randomDither nbits_
 
-Add random noise to the image while quantizing its pixels. The human eye is more tolerant of high frequency noise than it is to hard (low frequency) distracting edges or patterns. Again, _nbits_ is [1,8], which determines how many bits there are per color channel.
+Add random noise to the image while quantizing its pixels. The human eye is more tolerant of high frequency noise than it is to hard (low frequency) distracting edges or patterns. Again, _nbits_ is [1,8], which determines how many bits there are per color channel. Higher _nbits_ allows more colors.
 
 original (8 bits) | 1 | 2 | 3 | 4 | 5
 --- | --- | --- | --- | --- | ---
@@ -85,7 +85,7 @@ original (8 bits) | 1 | 2 | 3 | 4 | 5
 
 _.exe -FloydSteinbergDither nbits_
 
-Diffuses the error of the original color versus the quantized color to pixels later in the image. This means later pixels share the error of the current pixel being processed. The color is still quantized.
+Diffuses the error of the original color versus the quantized color to pixels later in the image. This means later pixels share the error of the current pixel being processed.  Again, _nbits_ is [1,8], which determines how many bits there are per color channel. Higher _nbits_ allows more colors.
 
 For example, if the current pixel should be 255 luminance but is put into a quantum which is 200 luminance, the error is 55 because it will be displayed darker than it is originally. This positive error is added to some later pixels, which will tend to be brighter than original to make up for the darkened pixel.
 
@@ -99,17 +99,17 @@ original (8 bits) | 1 | 2 | 3 | 4 | 5
 
 _.exe -blur n_
 
-Blurs the image with a filter of width _n_. The width is the "diameter" of the kernel. The blur is done using convolution.
+Performs Gaussian blur on the image with a filter of width _n_. The width is the "diameter" of the kernel. The blur is done using convolution with the gaussian filter. _n_ must be an odd number greater than 1. The higher _n_ blurs more.
 
 original | 3 | 5 | 7 | 11 | 15 | 21
---- | --- | --- | --- | --- | ---
+--- | --- | --- | --- | --- | --- | ---
 [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/flower.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur3.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur3.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur5.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur5.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur7.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur7.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur11.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur11.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur15.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur15.bmp) | [![](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur21.bmp)](https://raw.githubusercontent.com/rnlee0054/163.1Website/master/images/blur21.bmp)
 
 ## Sharpen
 
 _.exe -sharpen_
 
-Sharpens the image by increasing the high frequencies. The image is convolved using a sharpening filter.
+Sharpens the image by increasing the high frequencies. The image is convolved using a sharpening filter with specific values, being careful not to make up new information.
 
 original | sharpen
 --- | ---
@@ -120,7 +120,7 @@ original | sharpen
 
 _.exe -edgeDetect threshold_
 
-Draw the edges of the image's pixels, making the edges white and the rest black. This is done by convolving with a gradient (Soble) filter, normalizing the gradients, then thresholding with the _threshold_ value to detect edges. The pixel is set to white if its luminance is greater than the _threshold_, black if otherwise.
+Draw the edges of the image's pixels, making the edges white and the rest black. This is done by convolving with a gradient (Soble) filter, normalizing the gradients, then thresholding with the _threshold_ value to detect edges. The pixel is set to white if its luminance is greater than the _threshold_, black if otherwise. The higher _threshold_ makes the edge detection more strict, so only more obvious or hard edges are detected.
 
 _Remember: Click the images below to view full resolution._
 
